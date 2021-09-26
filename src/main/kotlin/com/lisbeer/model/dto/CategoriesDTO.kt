@@ -2,7 +2,7 @@ package com.lisbeer.model.dto
 
 import com.lisbeer.model.Categories
 
-class CategoriesDTO(
+data class CategoriesDTO(
     val name: String,
     val evaluation: Int = 0
 ) {
