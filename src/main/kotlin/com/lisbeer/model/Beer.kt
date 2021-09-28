@@ -1,12 +1,10 @@
 package com.lisbeer.model
 
-import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import java.util.UUID
+import javax.persistence.*
 
 @Entity
+@Table(name = "beers")
 class Beer(
     @Id
     @GeneratedValue
