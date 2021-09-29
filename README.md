@@ -7,7 +7,6 @@
 <!--ts-->
 * [Sobre](#Sobre)
 * [Features](#Features)
-* [Instalação](#instalacao)
 * [Pré-Requisitos](#Pré-Requisitos)
 * [Tecnologias](#tecnologias)
 <!--te-->
