@@ -1,12 +1,11 @@
-version: "3.8"
+version: "3.3"
 
 services:
   db:
     image: postgres:11.4
     container_name: database-lis
-    platform: linux/x86_64
-    entrypoint:
-      - POSTGRES_DB=lib-beer
+    environment:
+      - POSTGRES_DB=lis-beer
       - POSTGRES_PASSWORD=development
       - POSTGRES_USER=development
     ports:

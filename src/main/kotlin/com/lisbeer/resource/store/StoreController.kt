@@ -1,4 +1,4 @@
-package com.lisbeer.controller
+package com.lisbeer.resource.store
 
 import com.lisbeer.model.Store
 import com.lisbeer.repositories.StoreRepository

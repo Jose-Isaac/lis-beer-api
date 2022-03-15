@@ -1,4 +1,4 @@
-package com.lisbeer.controller
+package com.lisbeer.resource.beer
 
 import com.lisbeer.model.Beer
 import com.lisbeer.model.dto.BeerDTO
