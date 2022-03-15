@@ -20,5 +20,5 @@ class StoreController(
     val storeRepository: StoreRepository
 ) {
     @GetMapping("/beers/{id}")
-    fun getStoresWithBeerId(@PathVariable id: UUID): List<Store> {}
+    fun getStoresWithBeerId(@PathVariable id: UUID): List<Store> = listOf()
 }

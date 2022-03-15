@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:11.4
+    container_name: database-lis
+    platform: linux/x86_64
+    entrypoint:
+      - POSTGRES_DB=lib-beer
+      - POSTGRES_PASSWORD=development
+      - POSTGRES_USER=development
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/roles.sql:/docker-entrypoint-iniydb.d/roles.sql
+    restart: always
