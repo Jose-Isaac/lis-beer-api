@@ -1,7 +1,8 @@
-package com.lisbeer.controller
+package com.lisbeer.resource.store
 
-import com.lisbeer.model.Store
-import com.lisbeer.repositories.StoreRepository
+import com.lisbeer.domain.stores.Store
+import com.lisbeer.domain.stores.StoreService
+import com.lisbeer.infrastructure.repositories.stores.StoreRepository
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
 import org.springframework.web.bind.annotation.GetMapping
@@ -17,8 +18,8 @@ import java.util.UUID
     produces = [MediaType.APPLICATION_JSON_VALUE]
 )
 class StoreController(
-    val storeRepository: StoreRepository
+    val storeService: StoreService
 ) {
-    @GetMapping("/beers/{id}")
-    fun getStoresWithBeerId(@PathVariable id: UUID): List<Store> {}
+//    @GetMapping("/beers/{id}")
+//    fun getStoresWithBeerId(@PathVariable id: UUID): List<Store> = listOf()
 }
