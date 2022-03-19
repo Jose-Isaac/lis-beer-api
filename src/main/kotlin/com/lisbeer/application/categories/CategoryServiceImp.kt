@@ -1,6 +1,6 @@
 package com.lisbeer.application.categories
 
-import com.lisbeer.domain.categories.CategoriesService
+import com.lisbeer.domain.categories.CategoryService
 import com.lisbeer.domain.categories.CategoryVO
 import com.lisbeer.domain.categories.toEntity
 import com.lisbeer.domain.categories.toVO
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service
 import java.util.Optional
 
 @Service
-class CategoriesServiceImp(
+class CategoryServiceImp(
     @Autowired private val categoriesRepository: CategoriesRepository
-) : CategoriesService{
+) : CategoryService{
     override fun save(category: CategoryVO): Optional<CategoryVO> {
 
         return try {

@@ -1,8 +1,7 @@
 package com.lisbeer.resource.categories
 
-import com.lisbeer.domain.categories.CategoriesService
+import com.lisbeer.domain.categories.CategoryService
 import com.lisbeer.domain.categories.CategoryVO
-import com.lisbeer.domain.categories.Categories
 import com.lisbeer.resource.categories.representation.CategoryRepresentation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
@@ -20,18 +19,18 @@ import javax.validation.Valid
     produces = [MediaType.APPLICATION_JSON_VALUE]
 )
 @Validated
-class CategoriesController(
-    @Autowired private val categoriesService: CategoriesService
+class CategoryController(
+    @Autowired private val categoryService: CategoryService
 ) {
     @GetMapping
-    fun getAllCategories(): List<CategoryVO> = categoriesService.findAll()
+    fun getAllCategories(): List<CategoryVO> = categoryService.findAll()
 
     @PostMapping
     fun create(@Valid @RequestBody category: CategoryRepresentation): CategoryVO {
 
         // TODO melhorar a forma de retorno de erros para o usuário
 
-        val result = categoriesService.save(category.toVO())
+        val result = categoryService.save(category.toVO())
 
         return if (result.isPresent) {
             result.get()
