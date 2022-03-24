@@ -2,6 +2,7 @@ package com.lisbeer.resource.beer
 
 import com.lisbeer.domain.beers.BeerService
 import com.lisbeer.domain.beers.BeerVO
+import com.lisbeer.resource.beer.representation.beerRepresentation
 import org.intellij.lang.annotations.Pattern
 import org.springframework.http.MediaType
 import org.springframework.stereotype.Service
@@ -21,11 +22,16 @@ class BeerController(
 ) {
 
     @GetMapping
-    fun getAllBeers(
-        @RequestParam evaluation: Boolean = false,
-        @Valid @Pattern("DESC|ASC") @RequestParam orderBy: String
+    fun findAll(
+        @RequestParam evaluation: Boolean?,
+        @Valid @Pattern("DESC|ASC") @RequestParam orderBy: String?
     ): List<BeerVO> {
-        return beerService.findAll(orderBy, evaluation)
+        return beerService.findAll(orderBy ?: "DESC", evaluation ?: false)
+    }
+
+    @PostMapping
+    fun create(@Valid @RequestBody beer: beerRepresentation): BeerVO {
+        return beerService.create(beer.toVO(), beer.categories)
     }
 
 //    @GetMapping("/{id}")

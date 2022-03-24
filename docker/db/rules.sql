@@ -1,2 +1,57 @@
 CREATE DATABASE lis-beer
 USE lis-beer
+
+-- CREATE TABLE IF NOT EXISTS address (
+--    id           uuid    not null primary key,
+--    street       varchar(100) not null unique,
+--    city         varchar(50)  not null,
+--    state        varchar(40)  not null,
+--    postalCode   int          not null,
+--    country      varchar(60)  not null,
+--    houseNumber  int          not null,
+--    complement   varchar(200)
+-- );
+--
+-- CREATE TABLE IF NOT EXISTS stores (
+--     id           uuid          not null primary key,
+--     fantasy_name varchar(200)       not null unique,
+--     access_rule  varchar(20)        not null default 'USER',
+--     email        varchar(255)       not null,
+--     password     varchar(200)       not null,
+--     evaluation   double precision   not null default 0.0,
+--     photo_url    text               not null,
+--     address_id   bigserial          not null
+-- );
+--
+-- ALTER TABLE stores
+-- FOREIGN KEY (address_id) REFERENCES address(id);
+--
+-- CREATE TABLE IF NOT EXISTS beers (
+--     id          uuid           not null primary key,
+--     name        varchar(200)        not null,
+--     evaluation  double precision    not null default 0.0,
+--     brand       varchar(30)         not null,
+--     price       decimal(4, 2)       not null,
+--     photo_url   text                not null,
+--     store_id    bigserial           not null
+-- );
+--
+-- ALTER TABLE beers
+-- FOREIGN KEY (store_id) REFERENCES stores(id);
+--
+-- CREATE TABLE IF NOT EXISTS categories (
+--     id          uuid           not null primary key,
+--     name        varchar(200)        not null unique,
+--     evaluation  double precision    not null default 0.0
+-- );
+--
+-- CREATE TABLE beers_categories (
+--     id               uuid,
+--     fk_beer_id       uuid,
+--     fk_categories_id uuid
+-- );
+--
+-- ALTER TABLE beers_categories
+-- FOREIGN KEY (fk_beer_id) REFERENCES beers(id)
+-- FOREIGN KEY (fk_categories_id) REFERENCES categories(id)
+-- PRIMARY KEY id(fk_beer_id, fk_ categories_id);

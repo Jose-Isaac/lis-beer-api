@@ -1,12 +1,14 @@
 package com.lisbeer.domain.address
 
+import java.util.UUID
+
 data class AddressVO(
-    val id: Long = 0L,
+    val id: UUID = UUID.randomUUID(),
     val street: String,
     val city: String,
     val state: String,
     val postalCode: String,
     val country: String,
-    val number: Int,
+    val houseNumber: Int,
     val complement: String? = null
 )

@@ -1,13 +1,17 @@
 package com.lisbeer.domain.address
 
-import javax.persistence.*
+import java.util.*
+import javax.persistence.Column
+import javax.persistence.Entity
+import javax.persistence.Id
+import javax.persistence.Table
 
 @Entity
 @Table
-data class Address(
+class Address(
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    @Column(updatable = false, unique = true, nullable = false)
+    val id: UUID,
 
     @Column(nullable = false)
     val street: String,
@@ -25,7 +29,7 @@ data class Address(
     val country: String,
 
     @Column(nullable = false)
-    val number: Int,
+    val houseNumber: Int,
 
     @Column(nullable = true)
     val complement: String? = null
