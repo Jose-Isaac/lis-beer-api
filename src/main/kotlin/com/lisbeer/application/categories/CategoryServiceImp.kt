@@ -22,7 +22,6 @@ class CategoryServiceImp(
                 Optional.empty()
             } else {
                 val result = categoriesRepository.save(category.toEntity())
-
                 Optional.of(result.toVO())
             }
         } catch (e: Exception) {
