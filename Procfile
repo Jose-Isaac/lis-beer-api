@@ -1,0 +1,1 @@
+web: java -jar build/libs/lis-beer-api.jar --server.port=$PORT
