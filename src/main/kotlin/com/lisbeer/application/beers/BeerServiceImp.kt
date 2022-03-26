@@ -41,4 +41,14 @@ class BeerServiceImp(
 
         return result.toVO(categories.map { it.toVO() })
     }
+
+    override fun findAllByStoreId(storeId: UUID): List<BeerVO> {
+        val beers = beersRepository.findAllByStoreId(storeId)
+
+        return beers.map { beer ->
+            val categories = beerCategoryRepository.findCategoriesByBeerId(beer.id)
+
+            beer.toVO(categories.map { it.toVO() })
+        }
+    }
 }

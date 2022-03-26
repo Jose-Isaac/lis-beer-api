@@ -1,11 +1,11 @@
-package com.lisbeer.domain.stores
+package com.lisbeer.resource.store.representation
 
 import com.lisbeer.application.rules.Access
 import com.lisbeer.domain.address.AddressVO
 import com.lisbeer.domain.beers.BeerVO
 import java.util.*
 
-data class StoreVO(
+data class StoreDetailsResponseRepresentation(
     val id: UUID = UUID.randomUUID(),
     val fantasyName: String,
     val accessRule: Access = Access.STORE,
@@ -14,5 +14,5 @@ data class StoreVO(
     val evaluation: Double = 0.0,
     val photoUrl: String,
     val address: AddressVO,
-    var beers: List<BeerVO>? = null
+    val beers: List<BeerVO>
 )
