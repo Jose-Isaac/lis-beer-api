@@ -46,8 +46,8 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-tasks.withType<Jar> {
-	manifest {
-		attributes["Main-Class"] = "com.lisbeer.LisBeerApplication"
-	}
-}
+//tasks.withType<Jar> {
+//	manifest {
+//		attributes["Main-Class"] = "com.lisbeer.LisBeerApplication"
+//	}
+//}
