@@ -1,6 +1,5 @@
 package com.lisbeer.application.store
 
-import com.lisbeer.application.security.encodePassword
 import com.lisbeer.domain.address.toEntity
 import com.lisbeer.domain.address.toVO
 import com.lisbeer.domain.beers.BeerService
@@ -10,6 +9,7 @@ import com.lisbeer.domain.stores.toEntityWithPasswordEncode
 import com.lisbeer.domain.stores.toVO
 import com.lisbeer.infrastructure.repositories.address.AddressRepository
 import com.lisbeer.infrastructure.repositories.stores.StoreRepository
+import com.lisbeer.infrastructure.security.encodePassword
 import org.springframework.stereotype.Service
 import java.util.*
 
