@@ -30,6 +30,7 @@ dependencies {
 	implementation ("org.springframework.boot:spring-boot-starter-security")
 	implementation ("org.springframework.security:spring-security-test")
 	implementation("org.springframework.boot:spring-boot-starter-jdbc")
+	implementation("org.flywaydb:flyway-core")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -45,9 +46,3 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
-
-//tasks.withType<Jar> {
-//	manifest {
-//		attributes["Main-Class"] = "com.lisbeer.LisBeerApplication"
-//	}
-//}
