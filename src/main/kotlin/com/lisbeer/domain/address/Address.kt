@@ -23,7 +23,7 @@ class Address(
     val state: String,
 
     @Column(nullable = false)
-    val postalCode: String,
+    val postalCode: Int,
 
     @Column(nullable = false)
     val country: String,

@@ -14,7 +14,7 @@ data class AddressRepresentation(
     val state: String,
 
     @NotEmpty
-    val postalCode: String,
+    val postalCode: Int,
 
     @NotEmpty
     val country: String,
