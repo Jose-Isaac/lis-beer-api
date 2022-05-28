@@ -3,9 +3,9 @@ CREATE TABLE address (
    street       varchar(100) not null,
    city         varchar(50)  not null,
    state        varchar(40)  not null,
-   postalCode   int          not null,
+   postal_code   int          not null,
    country      varchar(60)  not null,
-   houseNumber  int          not null,
+   house_number  int          not null,
    complement   varchar(200)
 );
 

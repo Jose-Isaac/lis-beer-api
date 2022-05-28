@@ -1,6 +1,7 @@
 package com.lisbeer.domain.stores
 
 import com.lisbeer.domain.address.AddressVO
+import com.lisbeer.resource.store.representation.StoreDetailsResponseRepresentation
 import java.util.*
 
 fun StoreVO.toEntityWithPasswordEncode(encodedPassword: String, addressId: UUID) = Store(
@@ -34,4 +35,16 @@ fun Store.toVO(address: AddressVO) = StoreVO(
     evaluation = this.evaluation,
     photoUrl = this.photoUrl,
     address = address
+)
+
+fun StoreVO.toDetailsResponse() = StoreDetailsResponseRepresentation(
+    id = this.id,
+    fantasyName = this.fantasyName,
+    accessRule = this.accessRule,
+    email = this.email,
+    password = this.password,
+    evaluation = this.evaluation,
+    photoUrl = this.photoUrl,
+    address = address,
+    beers = this.beers ?: listOf()
 )

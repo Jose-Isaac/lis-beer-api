@@ -1,4 +1,4 @@
-package com.lisbeer.application.security
+package com.lisbeer.infrastructure.security
 
 import org.springframework.security.crypto.bcrypt.BCrypt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
