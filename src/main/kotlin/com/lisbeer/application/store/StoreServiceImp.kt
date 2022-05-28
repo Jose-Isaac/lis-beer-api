@@ -17,7 +17,7 @@ import java.util.*
 class StoreServiceImp(
     private val storeRepository: StoreRepository,
     private val addressRepository: AddressRepository,
-    private val beerService: BeerService
+    private val beerService: BeerService,
 ): StoreService {
     override fun create(store: StoreVO): StoreVO {
         val encodedPassword = encodePassword().encode(store.password)
