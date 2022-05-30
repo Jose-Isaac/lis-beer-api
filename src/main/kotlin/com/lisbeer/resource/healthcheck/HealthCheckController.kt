@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 @Service
 @RestController
 @RequestMapping(
-    path = ["/healthcheck"],
+    path = ["/"],
     produces = [MediaType.APPLICATION_JSON_VALUE]
 )
 @Validated

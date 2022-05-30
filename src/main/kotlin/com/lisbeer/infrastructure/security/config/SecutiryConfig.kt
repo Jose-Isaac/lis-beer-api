@@ -37,7 +37,7 @@ class SecurityConfig : WebSecurityConfigurerAdapter() {
     override fun configure(http: HttpSecurity) {
         http
             .authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/healthcheck")
+                .antMatchers(HttpMethod.GET, "/")
                 .permitAll()
             .anyRequest()
             .authenticated()
