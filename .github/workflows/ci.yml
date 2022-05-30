@@ -30,7 +30,7 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: "us-east-1" 
     - name: Print dir
-      run: echo "$(ls)"
+      run: cd /build  && echo "$(ls)"
     - name: Upload package to S3 bucket
       run: aws s3 cp /build/libs/*.jar s3://lis-beer/
     - name: Create new ElasticBeanstalk Application Version
