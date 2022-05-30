@@ -12,10 +12,10 @@ import org.springframework.security.crypto.password.PasswordEncoder
 @Configuration
 class SecurityConfig : WebSecurityConfigurerAdapter() {
 
-    @Value("\${AUTH_USER_PASSWORD}")
+    @Value("\${api.security.user.password}")
     private lateinit var userPassword: String
 
-    @Value("\${AUTH_ADMIN_PASSWORD}")
+    @Value("\${api.security.admin.password}")
     private lateinit var adminPassword: String
 
     val passwordEncoder: PasswordEncoder =
