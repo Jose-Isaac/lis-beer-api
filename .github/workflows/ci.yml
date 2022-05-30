@@ -6,6 +6,10 @@ on:
 
 permissions:
   contents: read
+  
+env:
+  AUTH_USER_PASSWORD: ${{ secrets.AUTH_USER_PASSWORD }}
+  AUTH_ADMIN_PASSWORD: ${{ secrets.AUTH_ADMIN_PASSWORD }}
 
 jobs:
   build:
