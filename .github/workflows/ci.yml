@@ -35,7 +35,7 @@ jobs:
       run: |
           aws elasticbeanstalk create-application-version \
           --application-name lis-beer-deploy \
-          --source-bundle S3Bucket="lis-beer",S3Key="*.jar" \
+          --source-bundle S3Bucket="lis-beer",S3Key="lisbeer-0.1.jar" \
           --version-label "ver-${{ github.sha }}" \
           --description "commit-sha-${{ github.sha }}"
     - name: Deploy new ElasticBeanstalk Application Version
