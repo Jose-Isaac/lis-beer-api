@@ -11,7 +11,7 @@ env:
 
 jobs:
   build:
-
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -48,12 +48,12 @@ jobs:
     - name: Create new ElasticBeanstalk Application Version
       run: |
           aws elasticbeanstalk create-application-version \
-          --application-name lis-beer-deploy \
+          --application-name lis-beer \
           --source-bundle S3Bucket="lis-beer",S3Key="lisbeer-0.1.jar" \
           --version-label "ver-${{ github.sha }}" \
           --description "commit-sha-${{ github.sha }}"
     - name: Deploy new ElasticBeanstalk Application Version
-      run: aws elasticbeanstalk update-environment --environment-name Lisbeerdeploy-env --version-label "ver-${{ github.sha }}"
+      run: aws elasticbeanstalk update-environment --environment-name Lisbeer-env --version-label "ver-${{ github.sha }}"
     
         
     
