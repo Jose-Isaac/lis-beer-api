@@ -1,5 +1,6 @@
 package com.lisbeer.application.users
 
+import com.lisbeer.domain.error.exeption.ConflictException
 import com.lisbeer.domain.users.UserService
 import com.lisbeer.domain.users.UserVO
 import com.lisbeer.domain.users.toEntity
@@ -15,14 +16,20 @@ class UserServiceImp(
     private val userRepository: UserRepository
 ) : UserService{
     override fun create(user: UserVO): UserVO {
-        return userRepository
-            .save(
-                user.toEntity(
-                    encodePassword().encode(user.password)
+         try {
+             return userRepository
+                .save(
+                    user.toEntity(
+                        encodePassword().encode(user.password)
+                    )
                 )
-            )
-            .toVO()
-        // TODO tratar exception de duplicate key
+                .toVO()
+        } catch(ex: Exception) {
+            if (ex.message?.contains("constraint") == true)
+                throw ConflictException("Email or username already exist!")
+
+            throw Exception(ex.message, ex.cause)
+        }
     }
 
     override fun myself(): Optional<UserVO> {

@@ -5,5 +5,6 @@ import java.util.*
 data class UserVO(
     val id: UUID = UUID.randomUUID(),
     val email: String,
-    val password: String
+    val password: String,
+    val username: String
 )
