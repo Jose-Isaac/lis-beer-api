@@ -4,11 +4,9 @@ import com.lisbeer.domain.users.UserService
 import com.lisbeer.domain.users.UserVO
 import com.lisbeer.resource.users.representation.UserRepresentation
 import org.springframework.http.MediaType
+import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @Service
 @RestController
@@ -21,7 +19,10 @@ class UserController(
 ) {
 
     @PostMapping("/signup")
-    fun create(@RequestBody user: UserRepresentation): UserVO {
+    fun signup(@RequestBody user: UserRepresentation): UserVO {
         return userService.create(user.toVO())
     }
+
+    @GetMapping("/me")
+    fun me() = ResponseEntity.ok(userService.myself())
 }
