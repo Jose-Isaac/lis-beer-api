@@ -17,18 +17,20 @@
 
 ### Features
 
-- [ ] | Cadastro de usuário e Loja
-- [ ] | Login de usuário e Loja
-- [ ] | Criação de uma nova Beer ( Somente Loja - Deve ser aprovada pelo time de negócio )
-- [x] | Obter informações de uma Beer pelo id
-- [x] | Obter todas as Beers 
-- [ ] |
-- [ ] | 
+- [x] | Cadastro de usuário
+- [ ] | Cadastro de Loja
+- [x] | Obter informações de uma Beer em específico 
+- [x] | Visualizar as Beers disponíveis
+- [x] | Cadastrar um nova Beer
+- [x] | Inserir uma nova categoria
+- [ ] | Swagger
+
+[//]: # (- [ ] | )
 
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [sdkman](https://sdkman.io/install), [PostgresSQL 13](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) e o JDK16 do Java.
+[Git](https://git-scm.com), [sdkman](https://sdkman.io/install), [Docker Desktop](https://www.docker.com/products/docker-desktop/) e o JDK16 do Java.
 
 Você pode instalar o java atraves do sdkman:
 
@@ -57,29 +59,37 @@ $ ./gradle build
 ```
 
 ```bash
-# Crie o arquivo application.properties em
+# Será necessãrio a criação das seguintes variáveis de ambiente:
+- RDS_HOSTNAME
+- RDS_PORT
+- RDS_DB_NAME
+- RDS_USERNAME
+- RDS_PASSWORD
+- JWT_SECRET
+
+# Valores default local:
+- RDS_HOSTNAME=localhost;
+- RDS_PORT=5432;
+- RDS_DB_NAME=lis-beer;
+- RDS_USERNAME=development;
+- RDS_PASSWORD=development;
+
+- JWT_SECRET=algum-valor-seguro
+
+# Essas variáveis são utilizadas no nosso application.properties que fica localizado em:
 $ cd /src/main/resources
 ```
-```bash
-# Dentro do arquivo application.properties colo o seguinte conteúdo:
 
-## default connection pool
-spring.datasource.hikari.connectionTimeout=20000
-spring.datasource.hikari.maximumPoolSize=5
+``` bash
+# Você pode iniciar o banco de dados pelo docker do projeto, acesse a pasta docker:
+$ cd docker
 
-## PostgreSQL connection
-#spring.jpa.database=
-spring.jpa.platform=postgres
-spring.datasource.url=jdbc:postgresql://localhost:5432/DATABASE_NAME
-spring.datasource.username=YOUR_POSTGRES_USERNAME
-spring.datasource.password=YOUR_POSTGRES_PASSWORD
-
-#drop n create table again, good for testing, comment this in production
-spring.jpa.hibernate.ddl-auto=create
+# Com o docker iniciado, rode o seguinte comando:
+$ docker-compose -f docker-compose-dev up
 ```
 
 ```bash
-# O servidor inciará na porta:8080 - acesse <http://localhost:8080>
+O servidor inciará na porta 8080 - acesse <http://localhost:8080>
 ```
 
 ### 🛠 Tecnologias
