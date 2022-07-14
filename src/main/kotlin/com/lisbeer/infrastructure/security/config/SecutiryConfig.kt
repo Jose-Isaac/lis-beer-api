@@ -1,5 +1,7 @@
 package com.lisbeer.infrastructure.security.config
 
+import com.lisbeer.application.store.StoreDetailServiceImp
+import com.lisbeer.application.users.UserDetailServiceImp
 import com.lisbeer.infrastructure.security.encodePassword
 import com.lisbeer.infrastructure.security.filter.JWTStoreAuthenticationFilter
 import com.lisbeer.infrastructure.security.filter.JWTStoreAuthorizationFilter
@@ -13,15 +15,14 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.config.http.SessionCreationPolicy
-import org.springframework.security.core.userdetails.UserDetailsService
 
 
 @Configuration
 class SecurityConfig(
     @Qualifier("UserDetailServiceImp")
-    private val userDetailsService: UserDetailsService,
+    private val userDetailsService: UserDetailServiceImp,
     @Qualifier("StoreDetailServiceImp")
-    private val storeDetailsService: UserDetailsService,
+    private val storeDetailsService: StoreDetailServiceImp,
     private val jwtUtil: JWTUtil
 ) : WebSecurityConfigurerAdapter() {
 
