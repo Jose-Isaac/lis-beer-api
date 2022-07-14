@@ -23,10 +23,8 @@ import javax.validation.Valid
 class StoreController(
     val storeService: StoreService
 ) {
-//    @GetMapping("/beers/{id}")
-//    fun getStoresWithBeerId(@PathVariable id: UUID): List<Store> = listOf()
 
-    @PostMapping
+    @PostMapping("/signup")
     fun create(@Valid @RequestBody store: StoreRepresentation): StoreVO {
         return storeService.create(store.toVO())
     }

@@ -19,16 +19,16 @@ data class StoreRepresentation(
     val password: String,
 
     @NotEmpty
-    val photoUrl: String,
+    val address: AddressRepresentation,
 
     @NotEmpty
-    val address: AddressRepresentation
+    val phoneNumber: String
 ) {
     fun toVO() = StoreVO(
         fantasyName = this.fantasyName,
         email = this.email,
         password = this.password,
-        photoUrl = this.photoUrl,
-        address = this.address.toVO()
+        address = this.address.toVO(),
+        phoneNumber = phoneNumber
     )
 }

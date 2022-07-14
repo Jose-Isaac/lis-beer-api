@@ -13,7 +13,7 @@ import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-class JWTAuthenticationFilter(
+class JWTUserAuthenticationFilter(
     private val authManager: AuthenticationManager,
     private val jwtUtil: JWTUtil,
 ) : UsernamePasswordAuthenticationFilter() {
