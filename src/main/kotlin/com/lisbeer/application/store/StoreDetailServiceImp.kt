@@ -1,20 +1,20 @@
-package com.lisbeer.application.users
+package com.lisbeer.application.store
 
-import com.lisbeer.infrastructure.repositories.users.UserRepository
+import com.lisbeer.infrastructure.repositories.stores.StoreRepository
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.stereotype.Service
 
-@Service("UserDetailServiceImp")
-class UserDetailServiceImp(
-    private val userRepository: UserRepository
+@Service("StoreDetailServiceImp")
+class StoreDetailServiceImp(
+    private val storeRepository: StoreRepository
 ) : UserDetailsService {
     override fun loadUserByUsername(email: String): UserDetails {
-        val entity = userRepository.findByEmail(email)
+        val entity = storeRepository.findByEmail(email)
 
         if (entity.isPresent) {
-            return UserDetailsImp(entity.get())
+            return StoreDetailsImp(entity.get())
         }
 
         throw UsernameNotFoundException(email)

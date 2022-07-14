@@ -12,7 +12,7 @@ data class StoreDetailsResponseRepresentation(
     val email: String,
     val password: String,
     val evaluation: Double = 0.0,
-    val photoUrl: String,
+    val phoneNumber: String,
     val address: AddressVO,
     val beers: List<BeerVO>
 )

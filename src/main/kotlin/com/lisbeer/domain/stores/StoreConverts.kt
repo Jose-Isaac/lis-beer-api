@@ -11,7 +11,7 @@ fun StoreVO.toEntityWithPasswordEncode(encodedPassword: String, addressId: UUID)
     email = this.email,
     password = encodedPassword,
     evaluation = this.evaluation,
-    photoUrl = this.photoUrl,
+    phoneNumber = this.phoneNumber,
     addressId = addressId
 )
 
@@ -22,7 +22,7 @@ fun StoreVO.toEntity(addressId: UUID) = Store(
     email = this.email,
     password = this.password,
     evaluation = this.evaluation,
-    photoUrl = this.photoUrl,
+    phoneNumber = this.phoneNumber,
     addressId = addressId
 )
 
@@ -33,7 +33,7 @@ fun Store.toVO(address: AddressVO) = StoreVO(
     email = this.email,
     password = this.password,
     evaluation = this.evaluation,
-    photoUrl = this.photoUrl,
+    phoneNumber = this.phoneNumber,
     address = address
 )
 
@@ -44,7 +44,7 @@ fun StoreVO.toDetailsResponse() = StoreDetailsResponseRepresentation(
     email = this.email,
     password = this.password,
     evaluation = this.evaluation,
-    photoUrl = this.photoUrl,
+    phoneNumber = this.phoneNumber,
     address = address,
     beers = this.beers ?: listOf()
 )

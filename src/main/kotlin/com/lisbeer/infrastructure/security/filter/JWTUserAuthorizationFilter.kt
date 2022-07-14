@@ -11,7 +11,7 @@ import javax.servlet.FilterChain
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-class JWTAuthorizationFilter(
+class JWTUserAuthorizationFilter(
     authManager: AuthenticationManager,
     private val jwtUtil: JWTUtil,
     private val userDetailsService: UserDetailsService

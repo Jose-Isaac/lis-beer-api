@@ -32,7 +32,7 @@ class Store(
     val evaluation: Double,
 
     @Column(nullable = false)
-    val photoUrl: String,
+    val phoneNumber: String,
 
     @Column(nullable = false)
     val addressId: UUID

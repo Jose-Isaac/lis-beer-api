@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-interface StoreRepository : JpaRepository<Store, UUID>
+interface StoreRepository : JpaRepository<Store, UUID> {
+    fun findByEmail(email: String): Optional<Store>
+}
