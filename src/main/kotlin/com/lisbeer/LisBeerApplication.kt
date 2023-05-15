@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class LisBeerApplication
 
 fun main(args: Array<String>) {
-	runApplication<LisBeerApplication>(*args)
+    runApplication<LisBeerApplication>(*args)
 }
