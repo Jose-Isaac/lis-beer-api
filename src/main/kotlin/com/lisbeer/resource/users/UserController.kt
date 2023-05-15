@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping(
     path = ["/users"],
-    produces = [MediaType.APPLICATION_JSON_VALUE]
+    produces = [MediaType.APPLICATION_JSON_VALUE],
 )
 class UserController(
-    private val userService: UserService
+    private val userService: UserService,
 ) {
 
     @PostMapping("/signup")
     fun signup(@RequestBody user: UserRepresentation) =
-         userService
-             .create(user.toVO())
-             .toResponseRepresentation()
+        userService
+            .create(user.toVO())
+            .toResponseRepresentation()
 
     @GetMapping("/me")
     fun me() =

@@ -7,7 +7,7 @@ fun UserVO.toEntity(): User {
         id = this.id,
         email = this.email,
         password = this.password,
-        username = this.username
+        username = this.username,
     )
 }
 
@@ -16,7 +16,7 @@ fun UserVO.toEntity(encodedPassword: String): User {
         id = this.id,
         email = this.email,
         password = encodedPassword,
-        username = this.username
+        username = this.username,
     )
 }
 
@@ -25,13 +25,12 @@ fun User.toVO(): UserVO {
         id = this.id,
         email = this.email,
         password = this.password,
-        username = this.username
+        username = this.username,
     )
 }
 
 fun UserVO.toResponseRepresentation() = UserResponseRepresentation(
     id = this.id,
     email = this.email,
-    username = this.username
+    username = this.username,
 )
-

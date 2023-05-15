@@ -1,6 +1,5 @@
 package com.lisbeer.resource.store
 
-
 import com.lisbeer.domain.stores.StoreService
 import com.lisbeer.domain.stores.StoreVO
 import com.lisbeer.domain.stores.toDetailsResponse
@@ -17,15 +16,18 @@ import javax.validation.Valid
 @RestController
 @RequestMapping(
     path = ["/stores"],
-    produces = [MediaType.APPLICATION_JSON_VALUE]
+    produces = [MediaType.APPLICATION_JSON_VALUE],
 )
 @Validated
 class StoreController(
-    val storeService: StoreService
+    val storeService: StoreService,
 ) {
 
     @PostMapping("/signup")
-    fun create(@Valid @RequestBody store: StoreRepresentation): StoreVO {
+    fun create(
+        @Valid @RequestBody
+        store: StoreRepresentation,
+    ): StoreVO {
         return storeService.create(store.toVO())
     }
 
