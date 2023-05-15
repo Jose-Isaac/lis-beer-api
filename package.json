@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "cucumber-js"
+    "test": "npx cypress run"
   },
   "type": "module",
   "devDependencies": {
