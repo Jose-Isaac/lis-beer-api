@@ -33,7 +33,6 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-    - name: Npm install
     - run: npm install
 
     - name: Run Cypress test
