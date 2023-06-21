@@ -25,4 +25,4 @@ jobs:
 
     - name: Build and Run Docker container
       run: docker-compose up -d
-      worker-directory: .
+      working-directory: .
