@@ -24,5 +24,5 @@ jobs:
         arguments: build -x test
 
     - name: Build and Run Docker container
-      run: docker-compose up -d
+      run: docker-compose -f ./docker-compose-dev.yml up -d
       working-directory: .
