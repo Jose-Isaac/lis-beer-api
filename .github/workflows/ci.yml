@@ -28,10 +28,13 @@ jobs:
       working-directory: .
 
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ env.NODE_VERSION }}
+    - name: Use Node.js 16.x
       uses: actions/setup-node@v3
       with:
         node-version: 16.x
-        cache: 'yarn'
-    - run: yarn
-    - run: yarn test
+        cache: 'npm'
+    - name: Npm install
+    - run: npm install
+
+    - name: Run Cypress test
+    - run: npm run test
