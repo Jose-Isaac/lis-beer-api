@@ -1,0 +1,43 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres:11.4
+    container_name: database-lis
+    environment:
+      - POSTGRES_DB=lis-beer
+      - POSTGRES_PASSWORD=development
+      - POSTGRES_USER=development
+#    ports:
+#      - "5432:5432"
+    volumes:
+      - ./docker/db/roles.sql:/docker-entrypoint-iniydb.d/roles.sql
+    restart: always
+#    networks:
+#      - lis-beer
+
+  app:
+    container_name: api-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+#    networks:
+#      - lis-beer
+    depends_on:
+      - db
+    environment:
+#      - DATABASE_URL="jdbc:postgresql://db:5432/lis-beer?sslmode=disable"
+      - RDS_USERNAME=development
+      - RDS_PASSWORD=development
+      - RDS_DB_NAME=lis-beer
+      - AUTH_USER_PASSWORD=password
+      - AUTH_ADMIN_PASSWORD=admin
+      - RDS_HOSTNAME=db
+      - RDS_PORT=5432
+      - JWT_SECRET=test
+    ports:
+      - "8081:8080"
+
+#networks:
+#  lis-beer:
+#    external: true

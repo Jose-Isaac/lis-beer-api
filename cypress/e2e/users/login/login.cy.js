@@ -11,7 +11,7 @@ describe('Login', () => {
   before(() => {
     cy.request(
       'POST',
-      'http://localhost:8080/users/signup',
+      '/users/signup',
       payload
     )
   })
