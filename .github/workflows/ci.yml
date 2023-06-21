@@ -26,3 +26,12 @@ jobs:
     - name: Build and Run Docker container
       run: docker-compose -f ./docker-compose-dev.yml up -d
       working-directory: .
+
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'yarn'
+    - run: yarn
+    - run: yarn test
