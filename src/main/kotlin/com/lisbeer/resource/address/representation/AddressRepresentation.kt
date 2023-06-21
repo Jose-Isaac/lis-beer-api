@@ -22,7 +22,7 @@ data class AddressRepresentation(
     @NotEmpty
     val houseNumber: Int,
 
-    val complement: String? = null
+    val complement: String? = null,
 ) {
     fun toVO() = AddressVO(
         street = this.street,
@@ -31,7 +31,6 @@ data class AddressRepresentation(
         postalCode = this.postalCode,
         country = this.country,
         houseNumber = this.houseNumber,
-        complement = this.complement
+        complement = this.complement,
     )
-
 }

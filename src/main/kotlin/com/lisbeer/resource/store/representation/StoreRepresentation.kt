@@ -22,13 +22,13 @@ data class StoreRepresentation(
     val address: AddressRepresentation,
 
     @NotEmpty
-    val phoneNumber: String
+    val phoneNumber: String,
 ) {
     fun toVO() = StoreVO(
         fantasyName = this.fantasyName,
         email = this.email,
         password = this.password,
         address = this.address.toVO(),
-        phoneNumber = phoneNumber
+        phoneNumber = phoneNumber,
     )
 }
