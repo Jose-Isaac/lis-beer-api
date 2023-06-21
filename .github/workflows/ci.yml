@@ -23,15 +23,27 @@ jobs:
       with:
         arguments: build -x test
 
-    - name: Build and Run Docker container
-      run: docker-compose -f ./docker-compose-dev.yml up -d
-      working-directory: .
+  docker:
+    name: Build and Run docker
+    needs: build
+    runs-on: ubuntu-latest
 
-    - uses: actions/checkout@v3
-    - name: Use Node.js 16.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: 16.x
-        cache: 'npm'
-    - run: npm install
-    - run: npm run test
+    steps:
+      - name: Build and Run Docker container
+        run: docker-compose -f ./docker-compose-dev.yml up -d
+        working-directory: .
+
+  e2e:
+    name: Run end to end tests
+    needs: docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'npm'
+      - run: npm install
+      - run: npm run test
