@@ -41,7 +41,6 @@ out/
 /src/main/resources/application.properties
 
 ### Cypress e2e ###
-package-lock.json
 cypress/downloads/
 cypress/screenshots/
 cypress/videos/

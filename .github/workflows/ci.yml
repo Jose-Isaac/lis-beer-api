@@ -1,6 +1,12 @@
 on:
   pull_request:
     branches: [ "main" ]
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * *'
     
 permissions:
   contents: read
@@ -17,7 +23,21 @@ jobs:
       with:
         java-version: '11'
         distribution: 'corretto'
+
     - name: Build with Gradle
       uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
       with:
         arguments: build -x test
+
+    - name: Build and Run Docker container
+      run: docker-compose -f ./docker-compose-dev.yml up -d
+      working-directory: .
+
+    - uses: actions/checkout@v3
+    - name: Use Node.js 16.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'npm'
+    - run: npm install
+    - run: npm run test
